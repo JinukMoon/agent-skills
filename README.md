@@ -12,29 +12,13 @@ Built for [Claude Code](https://claude.ai/code), but the core scripts are LLM-ag
 
 ## Installation
 
-### Claude Code
+Just tell Claude Code:
 
-```bash
-/plugin marketplace add JinukMoon/agent-skills
-/plugin install structure-visualizer@JinukMoon-agent-skills
-```
+> "https://github.com/JinukMoon/agent-skills 에서 structure-visualizer 스킬 설치해줘"
 
-### Manual
+Claude Code will clone this repo and copy the skill to `~/.claude/skills/`.
 
-Copy the skill folder into your `~/.claude/skills/` directory:
-
-```bash
-git clone https://github.com/JinukMoon/agent-skills.git
-cp -r agent-skills/skills/structure-visualizer ~/.claude/skills/
-```
-
-## Python Dependencies
-
-Each skill lists its own dependencies in its SKILL.md. For structure-visualizer:
-
-```bash
-pip install ovito ase Pillow
-```
+Each skill's `SKILL.md` contains its own setup guide (Python dependencies, renderer selection, etc.).
 
 ## License
 
