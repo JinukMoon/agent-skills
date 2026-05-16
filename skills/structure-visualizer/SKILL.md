@@ -103,9 +103,33 @@ When the user requests a render, determine these parameters from their request (
 | `tight_crop` | Auto-crop white background (OVITO) | `False` |
 | `crop_margin` | Margin in px for tight crop / transparent crop (OVITO) | `20` |
 
-## VESTA orientation matrix
+## Custom viewing angle
 
-Users can paste a 3x3 orientation matrix from VESTA. Convert it to the appropriate format:
+If the user asks how to control the viewing angle, guide them through the VESTA workflow:
+
+1. Open the structure file in **VESTA** (free software: https://jp-minerals.org/vesta/)
+2. Rotate the structure to the desired viewing angle using the mouse
+3. Go to **Edit → Bonds...** or simply look at the bottom-left status bar — the current orientation matrix is shown there. Alternatively: **Edit → Vectors...** or copy from the **console output** when rotating.
+4. The most reliable way: go to **Objects → Orientation...** (or press the orientation icon in the toolbar). This shows the current **3x3 rotation matrix**.
+5. Copy the 9 numbers (3 rows x 3 columns) and paste them into the render command.
+
+Example — the user pastes:
+```
+ 0.5000 -0.8660  0.0000
+ 0.6124  0.3536  0.7071
+-0.6124 -0.3536  0.7071
+```
+
+Pass to the render script as `--vesta-matrix "0.5 -0.866 0.0 / 0.6124 0.3536 0.7071 / -0.6124 -0.3536 0.7071"` (rows separated by `/`).
+
+### Built-in view presets (OVITO)
+
+For common angles without VESTA, the OVITO script supports `--view` presets:
+- `front` (default), `back`, `top`, `bottom`, `left`, `right`
+
+### VESTA matrix conversion (internal)
+
+When a user provides a VESTA matrix, convert it to the appropriate format for the chosen renderer:
 
 **For POV-Ray:** Convert matrix to Euler angles using scipy:
 ```python
