@@ -26,9 +26,9 @@ Rendered with OVITO Tachyon, transparent background:
 
 Just tell Claude Code:
 
-> "https://github.com/JinukMoon/agent-skills 에서 structure-visualizer 스킬 설치해줘"
+> "Install all skills from https://github.com/JinukMoon/agent-skills into my skills."
 
-Claude Code will clone this repo and copy the skill to `~/.claude/skills/`.
+Claude Code will clone this repo and copy the skills to `~/.claude/skills/`.
 
 Each skill's `SKILL.md` contains its own setup guide (Python dependencies, renderer selection, etc.).
 
