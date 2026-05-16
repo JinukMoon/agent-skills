@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "plugins": [
+    {
+      "name": "structure-visualizer",
+      "version": "1.0.0",
+      "description": "Render atomic/molecular structures as publication-quality PNG images using OVITO Tachyon or POV-Ray. Supports POSCAR, CONTCAR, .xyz, .traj, .cif formats with transparent backgrounds, custom colors/radii, and VESTA orientation.",
+      "location": "."
+    }
+  ]
+}
