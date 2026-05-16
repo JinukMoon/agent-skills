@@ -44,10 +44,6 @@ Rendered with OVITO Tachyon, transparent background:
 |:---:|:---:|
 | ![Ru147O38](skills/structure-visualizer/examples/17_Ru147O38_on_graphene.png) | ![Ru309O52](skills/structure-visualizer/examples/18_Ru309O52_on_graphene.png) |
 
-| CoOOH(001) + N | CoOOH(m101) + NO3 |
-|:---:|:---:|
-| ![CoOOH_N](skills/structure-visualizer/examples/13_CoOOH_001_N_adsorbate.png) | ![CoOOH_NO3](skills/structure-visualizer/examples/14_CoOOH_m101_NO3_adsorbate.png) |
-
 | ZnO + water | Co2MnO4 + water |
 |:---:|:---:|
 | ![ZnO_water](skills/structure-visualizer/examples/15_ZnO_water_interface.png) | ![Co2MnO4_water](skills/structure-visualizer/examples/16_Co2MnO4_water_interface.png) |
