@@ -28,3 +28,5 @@ cp -r skills/* ~/.claude/skills/
 | Skill | Description |
 |-------|-------------|
 | `structure-visualizer` | Render atomic/molecular structures as publication-quality PNG using OVITO Tachyon |
+| `pptx-to-pdf` | Convert PPTX to high-fidelity PDF via Windows PowerPoint COM (7K rasterized slides) |
+| `paper-reading` | Deep-read a scientific paper PDF and produce full Korean translation + critical review |
