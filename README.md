@@ -19,7 +19,7 @@ Each skill's `SKILL.md` contains its own setup guide (Python dependencies, rende
 | Skill | Description |
 |-------|-------------|
 | [structure-visualizer](skills/structure-visualizer/) | Render atomic/molecular structures as publication-quality PNG (OVITO Tachyon / POV-Ray) |
-| [pptx-to-pdf](skills/pptx-to-pdf/) | Convert PPTX to high-fidelity PDF via Windows PowerPoint COM (7K rasterized slides) |
+| [pptx-to-pdf](skills/pptx-to-pdf/) | Convert PPTX to PDF by rasterizing each slide as a 7K image — renders identically on any machine regardless of installed fonts |
 | [paper-reading](skills/paper-reading/) | Deep-read a scientific paper PDF and produce full Korean translation + critical review |
 | [pre-proof](skills/pre-proof/) | Final proofreading / anomaly hunt for manuscripts before submission (10-pass checker) |
 
