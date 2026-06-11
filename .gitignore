@@ -6,3 +6,4 @@ browser_profile/
 targets.txt
 *.log
 __pycache__/
+.omc/

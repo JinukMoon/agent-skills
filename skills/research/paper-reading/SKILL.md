@@ -8,6 +8,8 @@ description: >-
   like "이 논문 정리해줘", "논문 번역해줘", "논문 리뷰", "논문 읽고 분석", "비판적으로 봐줘",
   "강점/한계 정리", "paper reading", "translate this paper", or drop a .pdf into the
   paper-reading workspace. Trigger even if the user only says "이 논문 봐줘" with a PDF attached.
+  This is for ALREADY-PUBLISHED papers by OTHERS (study aid) — NOT for evaluating or revising
+  the user's own manuscript draft.
 ---
 
 # Paper Reading — Translation + Critical Review
