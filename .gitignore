@@ -1,0 +1,8 @@
+# Per-user local config — created on first use, never commit
+*.local.json
+authors.json
+state.json
+browser_profile/
+targets.txt
+*.log
+__pycache__/

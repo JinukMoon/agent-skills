@@ -160,7 +160,8 @@ def main():
 
     # Add POV-Ray library path
     with open("temp.ini", "a") as f:
-        f.write('\nLibrary_Path="/home/jumoon/povray-3.6/include"\n')
+        povray_include = os.environ.get("POVRAY_INCLUDE", "/usr/local/share/povray-3.6/include")
+        f.write(f'\nLibrary_Path="{povray_include}"\n')
 
     # Render
     renderer.render()

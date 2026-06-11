@@ -24,22 +24,34 @@ author decide; a false positive costs a glance, a missed error reaches print.
 
 ## Canonical author / affiliation (verify against these EXACTLY)
 
-These are the ground truth for this author's papers. Compare character-for-character and flag
-*any* deviation (spelling, word order, missing comma, "Rep. of Korea" vs "Republic of Korea",
+The skill verifies the manuscript's author block against `authors.json` (next to this SKILL.md)
+character-for-character.
+
+**First-run setup:** if `authors.json` does not exist yet, ASK the user before doing anything
+else: "처음 사용하시네요. 논문에 항상 들어가는 본인(및 고정 공저자)의 영문 이름, ORCID,
+소속(affiliation) 문자열을 알려주세요 — 이후 모든 pre-proof에서 이 값과 글자 단위로
+대조합니다." Then save their answer as `authors.json` and confirm it's stored locally only.
+
+```json
+{
+  "authors": [
+    {"name": "Your Name", "orcid": "0000-0000-0000-0000"},
+    {"name": "Co-Author Name", "orcid": "0000-0000-0000-0000"}
+  ],
+  "affiliation": "Your Department, Your University, City, Country"
+}
+```
+
+Compare character-for-character and flag *any* deviation (spelling, word order, missing comma,
 postal code, etc.).
 
-- **Authors (name + ORCID):**
-  - `Jinuk Moon` — ORCID `0009-0007-6236-0449`
-  - `Jeong Woo Han` — ORCID `0000-0001-5676-5844`
-- **Affiliation:** `Department of Materials Science and Engineering, Research Institute of Advanced Materials, Seoul National University, Seoul 08826, Republic of Korea`
-
-When the proof lists an ORCID for either of these two authors, verify it digit-for-digit against
-the value above and flag any mismatch (a wrong ORCID delays publication). If no ORCID is shown
-for them, note it so the author can add it.
+When the proof lists an ORCID for any of the canonical authors, verify it digit-for-digit against
+the value in `authors.json` and flag any mismatch (a wrong ORCID delays publication). If no ORCID
+is shown for them, note it so the author can add it.
 
 If the manuscript has *other* co-authors or affiliations, that is fine — do not flag them as
 wrong, but do report the author/affiliation block verbatim so the user can eyeball it. Your job
-is to guarantee these two names and this one affiliation are present and perfect.
+is to guarantee the canonical names and affiliation are present and perfect.
 
 ## Workflow
 
@@ -79,10 +91,12 @@ Use the bundled extractor (it preserves every unicode character as-is — do not
 "clean" the text, because the dirt is what we're hunting):
 
 ```bash
-/home/jumoon/miniconda3/envs/toolkit/bin/python \
-  ~/.claude/skills/pre-proof/scripts/extract_text.py "<file inside the folder>" \
+python ~/.claude/skills/pre-proof/scripts/extract_text.py \
+  "<file inside the folder>" \
   "${STEM}_preproof/${STEM}_extracted.txt"
 ```
+
+> Requires `PyMuPDF` and `python-docx`: `pip install PyMuPDF python-docx`
 
 PDF pages are tagged `===== PAGE n =====`; Word output tags paragraphs `[P0001]` and table
 cells `[T<t>.<r>.<c>]`. Use these tags as the **location** in every finding.
@@ -94,7 +108,7 @@ cells `[T<t>.<r>.<c>]`. Use these tags as the **location** in every finding.
   spelling** — a typo in the PDF is a typo in the text, so you do NOT need OCR to find spelling
   errors, and running OCR on a digital PDF only *adds* noise (mis-reads `a`→`&`, scrambles
   2-column reading order). For a *scanned* PDF the text layer is empty/garbage and **OCR is
-  required** — render each page and OCR it (e.g. `~/99_usefull/00_life_control/ocr.py`, easyocr;
+  required** — render each page and OCR it (e.g. with `easyocr`;
   use `gpu=False` if cuDNN errors).
 - **The text layer is glyph-lossy, NOT spelling-lossy.** Digital PDFs routinely carry broken
   font→Unicode mappings: superscripts/subscripts get dropped, and symbols get mis-mapped to
@@ -134,8 +148,7 @@ unicode subscripts, doubled words. Run it before the judgment passes and use its
 backbone for passes 3, 4, and 9:
 
 ```bash
-/home/jumoon/miniconda3/envs/toolkit/bin/python \
-  ~/.claude/skills/pre-proof/scripts/scan_anomalies.py \
+python ~/.claude/skills/pre-proof/scripts/scan_anomalies.py \
   "${STEM}_preproof/${STEM}_extracted.txt" \
   "${STEM}_preproof/${STEM}_scan.md"
 ```
@@ -152,8 +165,8 @@ spelling. Accumulate findings in a running list; de-duplicate as you go (same li
 = one finding). Run all **10 passes, always** — even if a pass finds nothing, record "Pass N:
 no new findings" so the user knows it was done.
 
-1. **Author & affiliation block** — verify `Jinuk Moon`, `Jeong Woo Han`, and the canonical
-   affiliation string character-for-character. Check superscript affiliation markers and
+1. **Author & affiliation block** — verify canonical author names and affiliation from
+   `authors.json` character-for-character. Check superscript affiliation markers and
    corresponding-author symbols/emails resolve correctly.
 2. **Spelling / typos** — every word. Misspellings, transposed letters, wrong-word errors
    (its/it's, affect/effect, "an" vs "a"), chemical-formula typos, element symbol case (Co vs
@@ -226,8 +239,8 @@ Write `preproof_report.md` using this structure:
 <one line: e.g. "12 findings — 2 Critical, 5 Major, 5 Minor. Not ready: fix Critical before submission.">
 
 ## Author & affiliation check
-- Jinuk Moon: ✅ / ⚠ <detail>
-- Jeong Woo Han: ✅ / ⚠ <detail>
+- <Author 1>: ✅ / ⚠ <detail>
+- <Author 2>: ✅ / ⚠ <detail>
 - Affiliation: ✅ exact match / ❌ <show the diff>
 
 ## Findings (by severity)
@@ -273,3 +286,10 @@ Tell the user where the folder and both reports (English + Korean) are, the verd
   complete all 10 passes over the whole thing.
 - If text extraction looks garbled (heavy math, scanned PDF), say so — a scanned/image PDF may
   need OCR before a meaningful pre-proof is possible.
+
+## Setup
+
+1. Install dependencies: `pip install PyMuPDF python-docx`
+2. On first use, the skill asks for your canonical author/affiliation info and saves it to
+   `authors.json` next to this SKILL.md (see the "Canonical author / affiliation" section above).
+   It stays on your machine; never commit it.

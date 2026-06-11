@@ -18,10 +18,19 @@ description: >-
 # pptx → high-fidelity PDF (Windows PowerPoint COM)
 
 ## When to use
-A user on this WSL box wants a `.pptx` turned into a PDF and cares that it
+A user on a WSL machine wants a `.pptx` turned into a PDF and cares that it
 matches what PowerPoint shows. This is the default PDF-conversion path for
 PowerPoint files here. If the user only needs rough text extraction or a
 searchable/editable PDF, this is the wrong tool (see "Trade-off" below).
+
+## First-run setup
+On first use, verify the environment and install dependencies — ask the user if anything
+is unclear:
+1. **WSL + Windows PowerPoint**: `powershell.exe -NoProfile -Command "$env:TEMP"` must work,
+   and Microsoft PowerPoint must be installed on the Windows side. If not, tell the user this
+   skill requires WSL with desktop PowerPoint and stop.
+2. **Python deps**: `pip install Pillow img2pdf` into whatever Python the user wants to use
+   (ask once, remember their choice).
 
 ## Why this approach (read once, it explains every step)
 Three ways exist to make a PDF from a `.pptx`, and only one matches the screen:
@@ -43,12 +52,10 @@ The fonts come from PowerPoint itself, so nothing can "break" — there is no
 font substitution or missing-glyph tofu, regardless of what's installed in WSL.
 
 ## How to run
-Everything is in one script. Use the toolkit env interpreter (it has Pillow +
-img2pdf):
+Everything is in one script. Requires `Pillow` and `img2pdf` (`pip install Pillow img2pdf`):
 
 ```bash
-/home/jumoon/miniconda3/envs/toolkit/bin/python \
-  ~/.claude/skills/pptx-to-pdf/scripts/pptx_to_pdf.py "<path/to/deck.pptx>"
+python ~/.claude/skills/pptx-to-pdf/scripts/pptx_to_pdf.py "<path/to/deck.pptx>"
 ```
 
 That produces `<path/to/deck>.pdf` — **plain basename, no quality suffix** (do
@@ -75,7 +82,7 @@ Only reach for flags when they request lossless, smaller, or a specific size.
 
 ## Requirements / gotchas
 - **Windows PowerPoint must be installed and reachable** via `powershell.exe`
-  (it is, on this machine). The script verifies the COM export succeeded and
+  (checked during first-run setup). The script verifies the COM export succeeded and
   aborts loudly otherwise.
 - The script stages the file under the Windows `%TEMP%` dir as ASCII
   `input.pptx`, because **Korean filenames get mangled crossing the WSL↔Windows

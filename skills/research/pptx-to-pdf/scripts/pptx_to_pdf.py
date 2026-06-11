@@ -22,8 +22,7 @@ rasterized slides into the PDF as images. This script does that:
 
 Output: plain `<pptx-basename>.pdf` next to the input, no quality suffix.
 
-Requires: Pillow + img2pdf. On this machine use the toolkit env interpreter:
-  /home/jumoon/miniconda3/envs/toolkit/bin/python
+Requires: Pillow + img2pdf (pip install Pillow img2pdf)
 """
 import argparse, os, re, shutil, subprocess, sys, tempfile
 

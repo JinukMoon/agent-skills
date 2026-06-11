@@ -1,0 +1,7 @@
+# 런타임/개인 파일 — 절대 커밋하지 말 것
+state.json
+browser_profile/
+members.local.json
+targets.txt
+*.log
+__pycache__/

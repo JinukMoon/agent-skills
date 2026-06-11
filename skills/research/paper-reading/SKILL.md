@@ -7,7 +7,7 @@ description: >-
   translated, summarized, deeply read, reviewed, critiqued, or "정독"; whenever they say things
   like "이 논문 정리해줘", "논문 번역해줘", "논문 리뷰", "논문 읽고 분석", "비판적으로 봐줘",
   "강점/한계 정리", "paper reading", "translate this paper", or drop a .pdf into the
-  17_paper_reading workspace. Trigger even if the user only says "이 논문 봐줘" with a PDF attached.
+  paper-reading workspace. Trigger even if the user only says "이 논문 봐줘" with a PDF attached.
 ---
 
 # Paper Reading — Translation + Critical Review
@@ -35,8 +35,13 @@ parent directory.
     └── yang2024boron_review.md        # Steps 2–5
 ```
 
-Move and rename the PDF into the folder so no original copy remains in the parent. Default working
-root is `/home/jumoon/99_usefull/17_paper_reading/` unless the user is working elsewhere.
+Move and rename the PDF into the folder so no original copy remains in the parent.
+
+**First-run setup:** the default working root is stored in `config.local.json` next to this
+SKILL.md (`{"workspace": "/path/to/paper_reading_root"}`). If that file does not exist yet, ask
+the user once: "논문 정독 폴더들을 모아둘 기본 경로를 알려주세요 (예: ~/papers). 앞으로 PDF를
+주시면 그 아래에 폴더를 만들어 정리합니다." Save the answer and don't ask again. If the user is
+clearly working in a specific directory for this paper, that takes precedence.
 
 ## Before you start: read the PDF properly
 
@@ -157,11 +162,8 @@ intentionally compressed. Save both files as final.
 
 ## Worked examples
 
-The default workspace already contains finished examples — read one before starting if you need a
-concrete target for depth and format:
-- `moon2025catbench_CellRepPhysSci/` — translation with metadata block + Summary section
-- `kim2026crossdomain_NatCommun/` — a thorough review with a long, specific 추가 비판 list and a
-  flow-diagram in the core-logic section
+If the user's workspace already contains finished paper-reading folders from previous runs, read
+one before starting when you need a concrete target for depth and format.
 
 ## Optional enhancements
 

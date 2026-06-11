@@ -47,7 +47,8 @@ conda run -n <env> pip install ovito ase Pillow scipy
 conda run -n <env> conda install -c conda-forge povray -y
 ```
 
-Replace `<env>` with the user's conda environment (default: `toolkit`).
+Replace `<env>` with the user's conda environment. On first use, ask the user which conda
+environment to install into / run from, and remember their answer for subsequent runs.
 
 ### Dependencies summary
 
@@ -61,7 +62,10 @@ Replace `<env>` with the user's conda environment (default: `toolkit`).
 
 ## Environment
 
-Always use `conda run -n <env>` for all Python execution. Default environment is `toolkit`.
+Always use `conda run -n <env>` for all Python execution, where `<env>` is the environment the
+user chose during first-run setup. If POV-Ray was installed via conda, set the include path
+with `POVRAY_INCLUDE=<env-prefix>/share/povray-3.6/include` when running `render_povray.py`
+(defaults to `/usr/local/share/povray-3.6/include`).
 
 ## Renderer selection
 
