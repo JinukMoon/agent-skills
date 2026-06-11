@@ -26,6 +26,7 @@ and stores them locally on your machine — no personal data lives in this repo.
 | [pptx-to-pdf](skills/research/pptx-to-pdf/) | Convert PPTX to PDF by rasterizing each slide as a 7K image — renders identically on any machine regardless of installed fonts |
 | [paper-reading](skills/research/paper-reading/) | Deep-read a scientific paper PDF and produce full Korean translation + critical review |
 | [pre-proof](skills/research/pre-proof/) | Final proofreading / anomaly hunt for manuscripts before submission (10-pass checker) |
+| [scientific-paper-coach](skills/research/scientific-paper-coach/) | Review or write scientific manuscripts against a 200+-item academic-writing checklist (distilled from an SNU scientific-writing course) — PASS/FAIL review mode + checklist-first write mode |
 
 ### Life
 

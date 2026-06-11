@@ -38,6 +38,7 @@ cp -r skills/research/* skills/life/* ~/.claude/skills/
 | `pptx-to-pdf` | Convert PPTX to PDF by rasterizing each slide as a 7K image — renders identically on any machine regardless of installed fonts |
 | `paper-reading` | Deep-read a scientific paper PDF and produce full Korean translation + critical review |
 | `pre-proof` | Final proofreading / anomaly hunt for manuscripts before submission (10-pass checker) |
+| `scientific-paper-coach` | Review or write scientific manuscripts against a 200+-item academic-writing checklist — PASS/FAIL review mode + checklist-first write mode |
 
 ### life/
 
