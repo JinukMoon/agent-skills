@@ -32,6 +32,8 @@ and stores them locally on your machine — no personal data lives in this repo.
 | Skill | Description |
 |-------|-------------|
 | [snu-tennis-reserve](skills/life/snu-tennis-reserve/) | Auto-grab SNU tennis court reservations the moment they open (Monday 9:30 KST) via Playwright |
+| [snu-etl-video-downloader](skills/life/snu-etl-video-downloader/) | Download SNU eTL/LCMS lecture videos by content_id (parallel, with failure detection) |
+| [whisper-transcribe](skills/life/whisper-transcribe/) | Transcribe lecture videos to text with OpenAI Whisper (ffmpeg extraction + GPU pipeline, battle-tested pitfalls included) |
 
 ## Examples (structure-visualizer)
 
