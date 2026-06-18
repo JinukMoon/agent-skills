@@ -39,6 +39,7 @@ cp -r skills/research/* skills/life/* ~/.claude/skills/
 | `paper-reading` | Deep-read a scientific paper PDF and produce full Korean translation + critical review |
 | `pre-proof` | Final proofreading / anomaly hunt for manuscripts before submission (10-pass checker) |
 | `scientific-paper-coach` | Review or write scientific manuscripts against a 200+-item academic-writing checklist — PASS/FAIL review mode + checklist-first write mode |
+| `jcr-if-extract` | Extract Clarivate JCR Impact Factors for a journal list → multi-year IF database, trend plot, and single-file HTML report with year-over-year movers |
 
 ### life/
 

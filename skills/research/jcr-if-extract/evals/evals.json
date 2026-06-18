@@ -1,0 +1,41 @@
+{
+  "skill_name": "jcr-if-extract",
+  "evals": [
+    {
+      "id": 0,
+      "name": "html-report",
+      "prompt": "I just pulled this year's Journal Impact Factors into jcr_if_2025.json. My journal list is target_journals.json and my multi-year history is jcr_if_database.json (all in this folder). Make me a single-file HTML report of the 2025 numbers, and call out the journals with the biggest year-over-year IF changes.",
+      "files": ["jcr_if_2025.json", "jcr_if_database.json", "target_journals.json"],
+      "assertions": [
+        "Produces a single .html file",
+        "Report contains 2025 IF values for the journals (e.g. Nat. Energy ~70.1)",
+        "Report shows year-over-year (2024->2025) movers, gainers and losers",
+        "HTML is self-contained (no broken external image/file references)"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "trend-plot",
+      "prompt": "Here's my multi-year journal Impact Factor database (jcr_if_database.json) and my journal list (target_journals.json). Plot the long-run IF trend over all the years in the data and highlight the journals whose IF changed the most.",
+      "files": ["jcr_if_database.json", "target_journals.json"],
+      "assertions": [
+        "Produces a PNG (or image) trend plot",
+        "X-axis spans the full year range present in the data (1997-2025), not a hard-coded stop",
+        "Some journals are visually highlighted vs gray context lines",
+        "Title/axis reflect Impact Factor over years"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "sid-guidance",
+      "prompt": "I want to pull this year's Journal Impact Factors from JCR (jcr.clarivate.com) with a script, but I keep getting 401 Unauthorized. What exactly do I need to give the script -- what token, and where do I find it in my browser?",
+      "files": [],
+      "assertions": [
+        "Identifies the needed header as x-1p-inc-sid",
+        "Says to copy it from the POST request to .../bwjournal/v1/search-result on jcr.clarivate.com",
+        "Warns against the snowplow/analytics request and/or correlation-id confusion",
+        "Mentions institution network + token being short-lived/expiring"
+      ]
+    }
+  ]
+}

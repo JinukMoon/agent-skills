@@ -1,0 +1,454 @@
+{
+  "categories": {
+    "Top-tier Multidisciplinary": [
+      {
+        "abbr": "Nature",
+        "full": "Nature",
+        "issn": "0028-0836",
+        "jcr_abbr": "NATURE"
+      },
+      {
+        "abbr": "Science",
+        "full": "Science",
+        "issn": "0036-8075",
+        "jcr_abbr": "SCIENCE"
+      },
+      {
+        "abbr": "PNAS",
+        "full": "Proceedings of the National Academy of Sciences",
+        "issn": "0027-8424",
+        "jcr_abbr": "P NATL ACAD SCI USA"
+      },
+      {
+        "abbr": "Nat. Commun.",
+        "full": "Nature Communications",
+        "issn": "2041-1723",
+        "jcr_abbr": "NAT COMMUN"
+      },
+      {
+        "abbr": "Sci. Adv.",
+        "full": "Science Advances",
+        "issn": "2375-2548",
+        "jcr_abbr": "SCI ADV"
+      }
+    ],
+    "Chemistry Top": [
+      {
+        "abbr": "JACS",
+        "full": "Journal of the American Chemical Society",
+        "issn": "0002-7863",
+        "jcr_abbr": "J AM CHEM SOC"
+      },
+      {
+        "abbr": "Angew. Chem.",
+        "full": "Angewandte Chemie International Edition",
+        "issn": "1433-7851",
+        "jcr_abbr": "ANGEW CHEM INT EDIT"
+      },
+      {
+        "abbr": "Chem",
+        "full": "Chem",
+        "issn": "2451-9294",
+        "jcr_abbr": "CHEM-US"
+      },
+      {
+        "abbr": "Chem. Rev.",
+        "full": "Chemical Reviews",
+        "issn": "0009-2665",
+        "jcr_abbr": "CHEM REV"
+      },
+      {
+        "abbr": "Chem. Soc. Rev.",
+        "full": "Chemical Society Reviews",
+        "issn": "0306-0012",
+        "jcr_abbr": "CHEM SOC REV"
+      },
+      {
+        "abbr": "JACS Au",
+        "full": "JACS Au",
+        "issn": "2691-3704",
+        "jcr_abbr": "JACS AU"
+      },
+      {
+        "abbr": "Nat. Synth.",
+        "full": "Nature Synthesis",
+        "issn": "2731-0582",
+        "jcr_abbr": "NAT SYNTH"
+      }
+    ],
+    "Catalysis": [
+      {
+        "abbr": "Nat. Catal.",
+        "full": "Nature Catalysis",
+        "issn": "2520-1158",
+        "jcr_abbr": "NAT CATAL"
+      },
+      {
+        "abbr": "ACS Catal.",
+        "full": "ACS Catalysis",
+        "issn": "2155-5435",
+        "jcr_abbr": "ACS CATAL"
+      },
+      {
+        "abbr": "Appl. Catal. B",
+        "full": "Applied Catalysis B: Environment and Energy",
+        "issn": "0926-3373",
+        "jcr_abbr": "APPL CATAL B-ENVIRON"
+      },
+      {
+        "abbr": "J. Catal.",
+        "full": "Journal of Catalysis",
+        "issn": "0021-9517",
+        "jcr_abbr": "J CATAL"
+      },
+      {
+        "abbr": "EES Catal.",
+        "full": "EES Catalysis",
+        "issn": "2753-801X",
+        "jcr_abbr": "EES CATAL"
+      },
+      {
+        "abbr": "Catal. Sci. Technol.",
+        "full": "Catalysis Science & Technology",
+        "issn": "2044-4753",
+        "jcr_abbr": "CATAL SCI TECHNOL"
+      },
+      {
+        "abbr": "Catal. Today",
+        "full": "Catalysis Today",
+        "issn": "0920-5861",
+        "jcr_abbr": "CATAL TODAY"
+      },
+      {
+        "abbr": "Mol. Catal.",
+        "full": "Molecular Catalysis",
+        "issn": "2468-8231",
+        "jcr_abbr": "MOL CATAL"
+      },
+      {
+        "abbr": "ChemCatChem",
+        "full": "ChemCatChem",
+        "issn": "1867-3880",
+        "jcr_abbr": "CHEMCATCHEM"
+      }
+    ],
+    "Energy": [
+      {
+        "abbr": "Energy Environ. Sci.",
+        "full": "Energy & Environmental Science",
+        "issn": "1754-5692",
+        "jcr_abbr": "ENERG ENVIRON SCI"
+      },
+      {
+        "abbr": "Joule",
+        "full": "Joule",
+        "issn": "2542-4351",
+        "jcr_abbr": "JOULE"
+      },
+      {
+        "abbr": "Adv. Energy Mater.",
+        "full": "Advanced Energy Materials",
+        "issn": "1614-6832",
+        "jcr_abbr": "ADV ENERGY MATER"
+      },
+      {
+        "abbr": "ACS Energy Lett.",
+        "full": "ACS Energy Letters",
+        "issn": "2380-8195",
+        "jcr_abbr": "ACS ENERGY LETT"
+      },
+      {
+        "abbr": "Nano Energy",
+        "full": "Nano Energy",
+        "issn": "2211-2855",
+        "jcr_abbr": "NANO ENERGY"
+      },
+      {
+        "abbr": "J. Energy Chem.",
+        "full": "Journal of Energy Chemistry",
+        "issn": "2095-4956",
+        "jcr_abbr": "J ENERGY CHEM"
+      },
+      {
+        "abbr": "Cell Rep. Phys. Sci.",
+        "full": "Cell Reports Physical Science",
+        "issn": "2666-3864",
+        "jcr_abbr": "CELL REP PHYS SCI"
+      },
+      {
+        "abbr": "Appl. Energy",
+        "full": "Applied Energy",
+        "issn": "0306-2619",
+        "jcr_abbr": "APPL ENERG"
+      },
+      {
+        "abbr": "J. Power Sources",
+        "full": "Journal of Power Sources",
+        "issn": "0378-7753",
+        "jcr_abbr": "J POWER SOURCES"
+      },
+      {
+        "abbr": "Int. J. Hydrog. Energy",
+        "full": "International Journal of Hydrogen Energy",
+        "issn": "0360-3199",
+        "jcr_abbr": "INT J HYDROGEN ENERG"
+      },
+      {
+        "abbr": "Nat. Energy",
+        "full": "Nature Energy",
+        "issn": "2058-7546",
+        "jcr_abbr": "NAT ENERGY"
+      },
+      {
+        "abbr": "Energy Storage Mater.",
+        "full": "Energy Storage Materials",
+        "issn": "2405-8297",
+        "jcr_abbr": "ENERGY STORAGE MATER"
+      },
+      {
+        "abbr": "Carbon Energy",
+        "full": "Carbon Energy",
+        "issn": "2637-9368",
+        "jcr_abbr": "CARBON ENERGY"
+      },
+      {
+        "abbr": "ACS Appl. Energy Mater.",
+        "full": "ACS Applied Energy Materials",
+        "issn": "2574-0962",
+        "jcr_abbr": "ACS APPL ENERG MATER"
+      },
+      {
+        "abbr": "Electrochim. Acta",
+        "full": "Electrochimica Acta",
+        "issn": "0013-4686",
+        "jcr_abbr": "ELECTROCHIM ACTA"
+      }
+    ],
+    "Materials": [
+      {
+        "abbr": "Nat. Mater.",
+        "full": "Nature Materials",
+        "issn": "1476-1122",
+        "jcr_abbr": "NAT MATER"
+      },
+      {
+        "abbr": "Adv. Mater.",
+        "full": "Advanced Materials",
+        "issn": "0935-9648",
+        "jcr_abbr": "ADV MATER"
+      },
+      {
+        "abbr": "Adv. Funct. Mater.",
+        "full": "Advanced Functional Materials",
+        "issn": "1616-301X",
+        "jcr_abbr": "ADV FUNCT MATER"
+      },
+      {
+        "abbr": "Adv. Sci.",
+        "full": "Advanced Science",
+        "issn": "2198-3844",
+        "jcr_abbr": "ADV SCI"
+      },
+      {
+        "abbr": "Chem. Mater.",
+        "full": "Chemistry of Materials",
+        "issn": "0897-4756",
+        "jcr_abbr": "CHEM MATER"
+      },
+      {
+        "abbr": "Acta Mater.",
+        "full": "Acta Materialia",
+        "issn": "1359-6454",
+        "jcr_abbr": "ACTA MATER"
+      },
+      {
+        "abbr": "Small",
+        "full": "Small",
+        "issn": "1613-6810",
+        "jcr_abbr": "SMALL"
+      },
+      {
+        "abbr": "Small Methods",
+        "full": "Small Methods",
+        "issn": "2366-9608",
+        "jcr_abbr": "SMALL METHODS"
+      },
+      {
+        "abbr": "J. Mater. Chem. A",
+        "full": "Journal of Materials Chemistry A",
+        "issn": "2050-7488",
+        "jcr_abbr": "J MATER CHEM A"
+      },
+      {
+        "abbr": "ACS Appl. Mater. Interfaces",
+        "full": "ACS Applied Materials & Interfaces",
+        "issn": "1944-8244",
+        "jcr_abbr": "ACS APPL MATER INTER"
+      },
+      {
+        "abbr": "Matter",
+        "full": "Matter",
+        "issn": "2590-2385",
+        "jcr_abbr": "MATTER-US"
+      }
+    ],
+    "Nano": [
+      {
+        "abbr": "ACS Nano",
+        "full": "ACS Nano",
+        "issn": "1936-0851",
+        "jcr_abbr": "ACS NANO"
+      },
+      {
+        "abbr": "Nano Lett.",
+        "full": "Nano Letters",
+        "issn": "1530-6984",
+        "jcr_abbr": "NANO LETT"
+      },
+      {
+        "abbr": "Nano-Micro Lett.",
+        "full": "Nano-Micro Letters",
+        "issn": "2311-6706",
+        "jcr_abbr": "NANO-MICRO LETT"
+      },
+      {
+        "abbr": "Nanoscale",
+        "full": "Nanoscale",
+        "issn": "2040-3364",
+        "jcr_abbr": "NANOSCALE"
+      }
+    ],
+    "Physical Chemistry": [
+      {
+        "abbr": "J. Phys. Chem. C",
+        "full": "Journal of Physical Chemistry C",
+        "issn": "1932-7447",
+        "jcr_abbr": "J PHYS CHEM C"
+      },
+      {
+        "abbr": "J. Phys. Chem. Lett.",
+        "full": "Journal of Physical Chemistry Letters",
+        "issn": "1948-7185",
+        "jcr_abbr": "J PHYS CHEM LETT"
+      },
+      {
+        "abbr": "PCCP",
+        "full": "Physical Chemistry Chemical Physics",
+        "issn": "1463-9076",
+        "jcr_abbr": "PHYS CHEM CHEM PHYS"
+      },
+      {
+        "abbr": "J. Chem. Phys.",
+        "full": "Journal of Chemical Physics",
+        "issn": "0021-9606",
+        "jcr_abbr": "J CHEM PHYS"
+      }
+    ],
+    "Computational / MLIP": [
+      {
+        "abbr": "npj Comput. Mater.",
+        "full": "npj Computational Materials",
+        "issn": "2057-3960",
+        "jcr_abbr": "NPJ COMPUT MATER"
+      },
+      {
+        "abbr": "Comput. Mater. Sci.",
+        "full": "Computational Materials Science",
+        "issn": "0927-0256",
+        "jcr_abbr": "COMP MATER SCI"
+      },
+      {
+        "abbr": "J. Chem. Theory Comput.",
+        "full": "Journal of Chemical Theory and Computation",
+        "issn": "1549-9618",
+        "jcr_abbr": "J CHEM THEORY COMPUT"
+      },
+      {
+        "abbr": "Digital Discovery",
+        "full": "Digital Discovery",
+        "issn": "2635-098X",
+        "jcr_abbr": "DIGIT DISCOV"
+      },
+      {
+        "abbr": "Mach. Learn.: Sci. Technol.",
+        "full": "Machine Learning: Science and Technology",
+        "issn": "2632-2153",
+        "jcr_abbr": "MACH LEARN-SCI TECHN"
+      },
+      {
+        "abbr": "Phys. Rev. B",
+        "full": "Physical Review B",
+        "issn": "2469-9950",
+        "jcr_abbr": "PHYS REV B"
+      },
+      {
+        "abbr": "Phys. Rev. Lett.",
+        "full": "Physical Review Letters",
+        "issn": "0031-9007",
+        "jcr_abbr": "PHYS REV LETT"
+      },
+      {
+        "abbr": "Phys. Rev. Mater.",
+        "full": "Physical Review Materials",
+        "issn": "2475-9953",
+        "jcr_abbr": "PHYS REV MATER"
+      },
+      {
+        "abbr": "Nat. Comput. Sci.",
+        "full": "Nature Computational Science",
+        "issn": "2662-8457",
+        "jcr_abbr": "NAT COMPUT SCI"
+      },
+      {
+        "abbr": "Nat. Mach. Intell.",
+        "full": "Nature Machine Intelligence",
+        "issn": "2522-5839",
+        "jcr_abbr": "NAT MACH INTELL"
+      },
+      {
+        "abbr": "J. Chem. Inf. Model.",
+        "full": "Journal of Chemical Information and Modeling",
+        "issn": "1549-9596",
+        "jcr_abbr": "J CHEM INF MODEL"
+      },
+      {
+        "abbr": "Phys. Rev. X",
+        "full": "Physical Review X",
+        "issn": "2160-3308",
+        "jcr_abbr": "PHYS REV X"
+      }
+    ],
+    "Applied / Engineering": [
+      {
+        "abbr": "Chem. Eng. J.",
+        "full": "Chemical Engineering Journal",
+        "issn": "1385-8947",
+        "jcr_abbr": "CHEM ENG J"
+      },
+      {
+        "abbr": "Appl. Surf. Sci.",
+        "full": "Applied Surface Science",
+        "issn": "0169-4332",
+        "jcr_abbr": "APPL SURF SCI"
+      },
+      {
+        "abbr": "ACS Sustain. Chem. Eng.",
+        "full": "ACS Sustainable Chemistry & Engineering",
+        "issn": "2168-0485",
+        "jcr_abbr": "ACS SUSTAIN CHEM ENG"
+      },
+      {
+        "abbr": "Chem. Commun.",
+        "full": "Chemical Communications",
+        "issn": "1359-7345",
+        "jcr_abbr": "CHEM COMMUN"
+      },
+      {
+        "abbr": "ChemSusChem",
+        "full": "ChemSusChem",
+        "issn": "1864-5631",
+        "jcr_abbr": "CHEMSUSCHEM"
+      }
+    ]
+  }
+}
