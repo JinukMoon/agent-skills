@@ -48,3 +48,4 @@ cp -r skills/research/* skills/life/* ~/.claude/skills/
 | `snu-tennis-reserve` | Auto-grab SNU tennis court reservations the moment they open (Monday 9:30 KST) via Playwright |
 | `snu-etl-video-downloader` | Download SNU eTL/LCMS lecture videos by content_id (parallel, with failure detection) |
 | `whisper-transcribe` | Transcribe lecture videos to text with OpenAI Whisper (ffmpeg extraction + GPU pipeline, battle-tested pitfalls included) |
+| `qr-code` | Generate print/slide-ready QR code PNGs (860×860, high error correction, black frame) from URLs/phone/text and verify each by decoding it back |
