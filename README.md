@@ -28,6 +28,7 @@ and stores them locally on your machine — no personal data lives in this repo.
 | [pre-proof](skills/research/pre-proof/) | Final proofreading / anomaly hunt for manuscripts before submission (10-pass checker) |
 | [scientific-paper-coach](skills/research/scientific-paper-coach/) | Review or write scientific manuscripts against a 200+-item academic-writing checklist (distilled from an SNU scientific-writing course) — PASS/FAIL review mode + checklist-first write mode |
 | [jcr-if-extract](skills/research/jcr-if-extract/) | Extract Clarivate JCR Impact Factors for a journal list, accumulate a multi-year IF database, plot long-run trends, and generate a single-file HTML report with year-over-year movers |
+| [paper-figure-pptx](skills/research/paper-figure-pptx/) | Paper-figure pipeline: matplotlib draws the ink, every label becomes an editable PowerPoint text box, and PNG + fully vector SVG are regenerated from the hand-edited PPTX |
 
 ### Life
 
