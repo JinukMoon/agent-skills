@@ -46,6 +46,7 @@ description: >
 3. PNG 렌더(`pptx2figs.py`)에는 **WSL + Windows PowerPoint**가 필요하다
    (`powershell.exe -NoProfile -Command '$env:TEMP'`가 동작해야 함). 없으면 `--no-png`로
    SVG만 뽑는다. 손그림 도형이 섞인 덱의 SVG 우회에는 `pdftocairo`(poppler-utils)가 필요하다.
+4. 데이터 계열 팔레트 — 쓰고 싶은 팔레트가 있는지 묻는다. 없으면 아래 "색" 절의 기본 팔레트를 쓴다.
 
 ## Figure text policy (default)
 
@@ -53,6 +54,20 @@ description: >
 - 패널별 제목을 달지 않는다. 패널 마커 `(a)`, `(b)`만 두고 설명은 캡션에서 한다.
 - 축 라벨·단위·눈금·범례·컬러바 라벨, 구조와 데이터를 잇는 짧은 식별자(MC step 번호 등)는 남기고, 아래 파이프라인대로 편집 가능하게 둔다.
 - 사용자가 특정 figure에 대해 명시적으로 예외를 요청하지 않는 한 이 기본값을 따른다.
+
+## 색 (default)
+
+데이터 계열 색은 아래 팔레트를 **순서대로** 쓴다. 기본 팔레트다. first-run setup에서 사용자가 자기 팔레트를 주면 그것으로 바꿔 쓴다.
+
+```python
+PALETTE = ['#77AEB3', '#E5885D', '#C7C4B5', '#A1C2DE', '#B4944B']
+from cycler import cycler
+plt.rcParams['axes.prop_cycle'] = cycler(color=PALETTE)   # 색을 안 준 plot/bar도 팔레트를 따른다
+```
+
+- 계열이 5개를 넘으면 같은 색 + 다른 마커/선 모양으로 구분한다. matplotlib 기본 `tab10`이나 다른 스킬의 팔레트를 섞지 않는다.
+- 글자는 검정이 기본이다. 막대 안 흰 숫자처럼 artist에 준 색은 PPTX 텍스트박스로 그대로 옮겨진다.
+- 컬러맵(히트맵·컬러바)은 팔레트 대상이 아니다. 데이터에 맞는 perceptually uniform 맵(`viridis` 등, 발산형이면 `RdBu_r`)을 쓴다.
 
 ## 1. figure 스크립트는 평소대로 쓴다
 
@@ -68,8 +83,15 @@ description: >
 ```python
 import sys; sys.path.insert(0, "{S}")
 from fig2pptx import export_figure
-path, n_text, n_comp, n_vec = export_figure(fig, "output/fig3.pptx")
+path, n_text, n_comp, n_vec = export_figure(fig, "output/fig3.pptx", print_width_in=3.3)
 ```
+
+`print_width_in` = 저널에 실릴 인쇄 폭(single column ~3.3 in, double ~7 in). 주면 그 폭으로
+줄였을 때 `min_pt`(기본 6 pt) 미만이 되는 텍스트박스·눈금 숫자를 목록으로 경고한다. 경고가 나오면
+`figsize`를 인쇄 폭에 가깝게 줄이거나 글자를 키운다 (저널 최소 글자 크기는 보통 5–7 pt).
+
+반환된 `path`를 그대로 쓸 것: 대상 PPTX가 PowerPoint에 열려 있어 잠겨 있으면 `<name>_v2.pptx`로
+저장하고 경고를 찍는다 (`swap_pictures_with_crop`도 동일).
 
 여러 개면 `runpy.run_path(script)`로 각 figure 스크립트를 재실행해 `ns["fig"]`를 회수한 뒤
 `export_figure`에 넘긴다 (figure 스크립트를 고칠 필요가 없다).
@@ -81,6 +103,10 @@ path, n_text, n_comp, n_vec = export_figure(fig, "output/fig3.pptx")
   그리고 구형 뷰어는 PNG로 폴백한다. 덤으로 `<base>_flat.{png,svg}`도 나온다.
 - `svg_fonttype='path'` — 그림에 남는 눈금 글자를 외곽선으로 굳힌다. `'none'`으로 두면 Windows
   PowerPoint에 Helvetica가 없어 눈금 글꼴이 조용히 바뀐다.
+- 범례는 **그룹 하나**가 된다: 색 견본·마커·해치는 matplotlib 잉크 그대로의 그림 객체, 항목 글자는
+  텍스트박스, 둘을 묶은 그룹(이름 `legend`). 그룹을 끌면 범례 전체가 같이 움직이고, 글자는 그룹 안에서
+  더블클릭해 고친다. 견본 색은 데이터 색이라 PPT에서 바꾸지 않는다 — 코드에서 바꾼다.
+  `fig.legend(...)`(figure 범례)도 똑같이 처리된다.
 - `bake_legend=True` — 범례도 그림에 굽는다. 결정학 overbar(`$\bar{1}$`)처럼 PowerPoint 텍스트
   run이 제대로 조판하지 못하는 라벨이 있을 때만 쓴다.
 - mathtext(`$\mathit{e}$`, `_{}`/`^{}`)는 유니코드 + 첨자 baseline run으로 변환된다.
@@ -119,12 +145,17 @@ swap_pictures_with_crop(p, sources, crop=0.28)   # sources = 패널 순서(행 �
 {PY} {S}/pptx2figs.py deck.pptx
 #  -> deck_final.png (PowerPoint COM 렌더, 4800 px) + deck_final.svg (완전 벡터)
 #  옵션: --png-width N, --no-png, --no-svg, --suffix _x, --force-compose
+#        --print-width 3.3 [--min-pt 6]   손으로 고친 글자가 인쇄 폭에서 너무 작아지지 않았는지 경고
 ```
 
 몇 번이든 반복 가능하다. **PPTX가 원본이고 PNG·SVG는 파생물이다.**
+사용자가 PowerPoint를 켜 둔 채 실행해도 된다 — 렌더가 끝나면 스크립트가 연 사본만 닫고, 화면에
+PowerPoint 창이 하나라도 있으면 `Quit()`하지 않는다 (PowerPoint는 단일 인스턴스라 무조건 Quit하면
+사용자가 열어 둔 덱까지 닫힌다). 그룹(범례 그룹, 사용자가 묶은 그룹)은 SVG 조립기가 안으로
+들어가 그림·텍스트를 직접 그린다. 단 그룹 안에 선·도형이 있거나 그룹을 회전·반전했으면 아래 PDF 우회로 간다.
 출력에 `_final`이 붙는 이유: 덱 이름이 matplotlib 스크립트 출력과 겹쳐 덮어쓰는 사고를 막기 위함.
 
-손으로 그린 도형(선·화살표·도형·그룹)이 섞인 덱은 조립기가 못 그리므로 **자동으로 PowerPoint
+손으로 그린 도형(선·화살표·도형, 회전·반전한 그룹)이 섞인 덱은 조립기가 못 그리므로 **자동으로 PowerPoint
 PDF → `pdftocairo -svg` 경로로 우회**한다. 도형·글자는 벡터로 살지만 사진은 ~200 ppi로
 리샘플되니, 이미지 비중이 큰 그림은 PNG를 권할 것. 실행 시 그 경고가 찍힌다.
 

@@ -21,6 +21,7 @@ from pptx import Presentation
 from pptx.util import Pt
 from pptx.dml.color import RGBColor
 from PIL import Image
+from fig2pptx import save_pptx
 
 
 def _crop_fracs(src, crop):
@@ -57,5 +58,7 @@ def swap_pictures_with_crop(pptx_path, sources, crop=0.3, outline_pt=0.75, slide
                 if k.endswith('}embed') or k.endswith('}link'): used.add(v)
     for rId, rel in list(slide.part.rels.items()):
         if rel.reltype.endswith('/image') and rId not in used: slide.part.drop_rel(rId)
-    prs.save(pptx_path)
+    written = save_pptx(prs, pptx_path)   # -> <name>_v2.pptx if the deck is open in PowerPoint
+    if written != pptx_path:
+        print(f"    !! run pptx2figs.py on {written}, not on the locked original")
     return len(pics)
