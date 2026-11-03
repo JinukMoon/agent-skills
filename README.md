@@ -29,6 +29,7 @@ and stores them locally on your machine — no personal data lives in this repo.
 | [scientific-paper-coach](skills/research/scientific-paper-coach/) | Review or write scientific manuscripts against a 200+-item academic-writing checklist (distilled from an SNU scientific-writing course) — PASS/FAIL review mode + checklist-first write mode |
 | [jcr-if-extract](skills/research/jcr-if-extract/) | Extract Clarivate JCR Impact Factors for a journal list, accumulate a multi-year IF database, plot long-run trends, and generate a single-file HTML report with year-over-year movers |
 | [paper-figure-pptx](skills/research/paper-figure-pptx/) | Paper-figure pipeline: matplotlib draws the ink, every label becomes an editable PowerPoint text box, and PNG + fully vector SVG are regenerated from the hand-edited PPTX |
+| [pptx-formatter](skills/research/pptx-formatter/) | PPT formatter + pre-proof: fix only what you point out (animations proven untouched), plus an audit of fonts, same-level sizes, alignment, line breaks and overflow read from real PowerPoint |
 
 ### Life
 

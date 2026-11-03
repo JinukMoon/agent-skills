@@ -41,6 +41,7 @@ cp -r skills/research/* skills/life/* ~/.claude/skills/
 | `scientific-paper-coach` | Review or write scientific manuscripts against a 200+-item academic-writing checklist — PASS/FAIL review mode + checklist-first write mode |
 | `jcr-if-extract` | Extract Clarivate JCR Impact Factors for a journal list → multi-year IF database, trend plot, and single-file HTML report with year-over-year movers |
 | `paper-figure-pptx` | Paper-figure pipeline: matplotlib draws the ink, every label becomes an editable PowerPoint text box, and PNG + fully vector SVG are regenerated from the hand-edited PPTX |
+| `pptx-formatter` | PPT formatter + pre-proof: fixes only pointed-out items with animations verified untouched, audits fonts / sizes / alignment / line breaks / overflow via PowerPoint COM |
 
 ### life/
 
